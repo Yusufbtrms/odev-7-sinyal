@@ -1,0 +1,54 @@
+MADDE 1 - SINUS VEKTORU
+  N = 256 (2'nin kuvveti), ornekleme = 256 Hz, frekans = 8 Hz (periyot = 32 ornek), genlik = 2, faz = 30 derece
+  Ilk 8 eleman: 1.0000 1.3187 1.5867 1.7937 1.9319 1.9957 1.9829 1.8939
+  En buyuk = 1.9957, en kucuk = -1.9957
+
+MADDE 2 - GURULTU
+  Gurultu orani = 0.3000, genlik = 2.0000 -> en buyuk gurultu <= 0.6000 (olculen en buyuk = 0.5981)
+  Gurultu RMS: olculen = 0.3376, kuram (duzgun dagilim) = oran*genlik/sqrt(3) = 0.3464
+  Gurultulu sinyalin SNR'i (temiz sinyale gore) = 12.44 dB
+
+MADDE 3 - FILTRELEME (pencere = 9, Gauss sigma = 2.0000)
+  Sinyal                       MSE    SNR (dB)    genlik (8 Hz bileseni)
+  gurultulu                 0.1140       12.44                    1.9882
+  Gauss sonrasi             0.0324       17.90                    1.8624
+  Medyan sonrasi            0.0650       14.88                    1.8596
+  (temiz sinyalin 8.0000 Hz bilesen genligi = 2.0000)
+
+  Gurultu oranina gore MSE (pencere 9):
+        oran     gurultulu         Gauss        Medyan
+         0.1        0.0127        0.0135        0.0221
+         0.3        0.1140        0.0324        0.0650
+         0.6        0.4558        0.0929        0.1385
+         1.0        1.2661        0.2337        0.3160
+
+  Pencere boyutuna gore (gurultu orani 0.30, Gauss sigma = pencere/4): MSE ve 8.00 Hz bilesen genligi
+     pencere     Gauss MSE    Gauss gen.    Medyan MSE   Medyan gen.
+           3        0.0481        1.9707        0.0643        1.9910
+           5        0.0325        1.9420        0.0551        1.9543
+           9        0.0345        1.8445        0.0650        1.8596
+          15        0.0980        1.6140        0.1375        1.6643
+          25        0.4408        1.0998        0.7529        0.8794
+          41        1.4077        0.3512        3.3655        0.5069
+
+  EK DENEY - durtu gurultusu (elemanlarin bir kismi +-1.5*genlik'e ayarlanir), pencere 9:
+          oran     gurultulu         Gauss        Medyan
+          0.02        0.2633        0.0511        0.0201
+          0.05        0.5258        0.1163        0.0290
+          0.10        0.8165        0.1679        0.0352
+
+MADDE 4 - DFT (harmonik vektoru: k = 0..128, genlik cinsinden; k. harmonik = 1.0000 Hz x k)
+  Dogrulama: ters DFT ile geri elde edilen vektor ile orijinal arasindaki en buyuk fark = 3.1086e-15
+  Sinyal              tepe k   tepe genlik  faz (derece)  taban ortalamataban en buyuk    tepe/taban
+  temiz                    8        2.0000         30.00         0.00000       0.000008680010969091186.0
+  gurultulu                8        1.9882         29.48         0.03833       0.07965          51.9
+  Gauss sonrasi            8        1.8624         29.39         0.01324       0.08083         140.7
+  Medyan sonrasi           8        1.8596         29.57         0.02487       0.08017          74.8
+  (gercek: tepe k = 8, genlik = 2.0000, faz = 30.00 derece)
+  Gurultulu vektorun en guclu 5 harmonigi: k=8 (1.9882) k=2 (0.0796) k=98 (0.0787) k=72 (0.0773) k=92 (0.0760)
+
+Kaydedilenler (cikti_sinyal):
+  1_sinus_vektoru.png     : Madde 1, vektor elemanlari (noktalar) ve surekli sinus dalgasi
+  2_gurultulu_sinyal.png  : Madde 2, temiz ve gurultulu sinyal
+  3_gauss_ve_medyan.png   : Madde 3, ust: Gauss, alt: Medyan sonucu
+  4_dft_harmonikler.png   : Madde 4, DFT harmonik genlikleri (yukaridan asagi: temiz, gurultulu, Gauss, Medyan)
