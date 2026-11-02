@@ -1,0 +1,42 @@
+RESIM: images/Cat.jpg (256x256'e kucultuldu)
+PARAMETRELER: Gauss sigma = 20.0, tuz-biber orani = 0.050 (bozulan piksel sayisi ~ 3277)
+
+GURULTU KUVVETI (orijinale gore, kirpma sonrasi gercek degerler):
+  Resim                  gurultu RMS   PSNR (dB) DC (ort. parlak.)
+  orijinal                         -           -           153.746
+  Gauss gurultulu             19.682       22.25           153.420
+  tuz-biber gurultulu         32.199       17.97           152.397
+
+HARMONIK MATRISI: yaricap bantlarina gore ortalama genlik (r = sqrt(fu^2 + fv^2); DC haric)
+  Bant (r)          orijinal       Gauss     tuz-biber   Gauss/orij. tuz-biber/orij.
+  1 - 8               4.5300      4.5090        4.3061          1.00            0.95
+  8 - 16              1.0197      1.0244        0.9914          1.00            0.97
+  16 - 32             0.3517      0.3774        0.3993          1.07            1.14
+  32 - 64             0.1071      0.1774        0.2494          1.66            2.33
+  64 - 128            0.0333      0.1416        0.2257          4.25            6.78
+  128 - 182           0.0177      0.1377        0.2211          7.79           12.51
+
+  DC haric enerjinin |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani: orijinal = 95.13 %, Gauss = 84.78 %, tuz-biber = 70.24 %
+  En guclu 3 harmonik, orijinal             (fu=1, fv=0, 49.62) (fu=0, fv=1, 23.44) (fu=1, fv=1, 16.62)
+  En guclu 3 harmonik, Gauss gurultulu      (fu=1, fv=0, 49.43) (fu=0, fv=1, 23.36) (fu=1, fv=1, 16.70)
+  En guclu 3 harmonik, tuz-biber gurultulu  (fu=1, fv=0, 47.05) (fu=0, fv=1, 22.09) (fu=1, fv=1, 15.83)
+
+GURULTUNUN KENDI SPEKTRUMU (gurultulu - orijinal): ortalama genlik (DC haric)
+  Gauss      : olculen = 0.136, beyaz gurultu kurami RMS*sqrt(pi/(H*W)) = 0.136
+  tuz-biber  : olculen = 0.222, beyaz gurultu kurami RMS*sqrt(pi/(H*W)) = 0.223
+  Gurultu spektrumunun bant ortalamalari (dusuk bant -> yuksek bant):
+    Gauss    : 0.143 0.131 0.136 0.136 0.136 0.137
+    tuz-biber: 0.328 0.220 0.219 0.223 0.223 0.221
+
+TARAMA (ayni resim; yuksek frekans = r >= 64 bandinin ortalama genligi, orijinalde 0.0291):
+  Gurultu                      PSNR (dB) yuksek frek. genlik  dusuk frek. enerji %
+  Gauss sigma = 10                 28.14              0.0765                 92.25
+  Gauss sigma = 20                 22.25              0.1406                 84.78
+  Gauss sigma = 40                 16.61              0.2626                 64.55
+  tuz-biber orani = 0.01           24.57              0.1093                 88.62
+  tuz-biber orani = 0.05           17.97              0.2245                 70.24
+  tuz-biber orani = 0.10           15.07              0.3095                 54.09
+
+Kaydedilenler (cikti_goruntu_gurultu):
+  8_karsilastirma.png         : ust: orijinal / Gauss / tuz-biber resimler; orta: log spektrumlar (ayni olcek); alt: gurultunun kendi spektrumu
+  8_gauss_gurultulu.png, 8_tuz_biber_gurultulu.png : gurultulu resimler

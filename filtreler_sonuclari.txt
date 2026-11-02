@@ -1,0 +1,46 @@
+Resim: images/zoneplate.png.jpeg (426x418 -> 256x256)
+FILTRELER (r = sifir frekanstan uzaklik, 'dongu/resim'; Nyquist siniri = 128): LP/HP kesim R = 24, BP/BR bandi 20 - 50
+  Gurultu: Gauss sigma = 20, tuz-biber orani = 0.05
+
+TABLO 1 - TEMIZ RESIM UZERINDE FILTRELERIN ETKISI (orijinal: ort. parlaklik 120.52, std 93.22, kenar gucu 46.855)
+  Filtre                DC kazanci ort. parlak.       min       max  kenar gucu      oran      ZNCC  enerji orani
+  Ideal LP  R=24              1.00       120.52     -46.0     311.7      17.901      0.38     0.824         0.672
+  Ideal HP  R=24              0.00         0.00    -184.7     139.8      44.256      0.94     0.535         0.332
+  Ideal BP  20-50             0.00         0.00    -132.6     133.8      45.427      0.97     0.578         0.382
+  Ideal BR  20-50             1.00       120.52     -53.8     333.6      18.773      0.40     0.794         0.618
+  Gauss LP  R=24              1.00       120.52      -0.0     255.0      16.860      0.36     0.898         0.560
+  Gauss HP  R=24              0.00         0.00    -156.4     104.9      34.775      0.74     0.648         0.216
+  Gauss BP  20-50             0.00         0.00    -107.6     108.1      35.096      0.75     0.548         0.241
+  Gauss BR  20-50             1.00       120.52     -46.9     284.2      19.424      0.41     0.878         0.654
+  (ort. parlak. = filtre ciktisinin kirpilmamis ortalamasi = DC kazanci x orijinal ortalama; min/max kirpilmamis degerler: 0-255 disina tasma = halka (ringing) / Gibbs etkisi)
+  (oran = filtre cikti kenar gucu / orijinal kenar gucu; enerji orani = cikti varyansi / orijinal varyans)
+
+TABLO 2a - GAUSS GURULTULU RESIM: filtrelerin gurultuye etkisi (giris gurultu RMS = 17.99, giris SNR = 14.29 dB)
+  Filtre               gecen gurultu RMS   kuram (beyaz)    gecen oran  cikis SNR dB  SNR degisimi
+  Ideal LP  R=24                    4.98            2.98         0.277         23.72          9.43
+  Ideal HP  R=24                   17.29           17.74         0.961          9.85         -4.44
+  Ideal BP  20-50                   5.72            5.71         0.318         20.05          5.76
+  Ideal BR  20-50                  17.05           17.06         0.948         12.67         -1.62
+  Gauss LP  R=24                    4.52            2.54         0.251         23.77          9.48
+  Gauss HP  R=24                   16.99           17.44         0.945          8.12         -6.17
+  Gauss BP  20-50                   4.62            4.66         0.257         19.91          5.62
+  Gauss BR  20-50                  16.76           16.74         0.932         13.06         -1.23
+
+TABLO 2b - TUZ-BIBER GURULTULU RESIM: filtrelerin gurultuye etkisi (giris gurultu RMS = 36.63, giris SNR = 8.11 dB)
+  Filtre               gecen gurultu RMS   kuram (beyaz)    gecen oran  cikis SNR dB  SNR degisimi
+  Ideal LP  R=24                    7.22            6.06         0.197         20.49         12.37
+  Ideal HP  R=24                   35.92           36.13         0.980          3.50         -4.62
+  Ideal BP  20-50                  11.87           11.63         0.324         13.71          5.60
+  Ideal BR  20-50                  34.66           34.74         0.946          6.51         -1.61
+  Gauss LP  R=24                    6.24            5.17         0.170         20.97         12.85
+  Gauss HP  R=24                   35.29           35.52         0.963          1.77         -6.34
+  Gauss BP  20-50                   9.66            9.50         0.264         13.51          5.40
+  Gauss BR  20-50                  34.03           34.10         0.929          6.91         -1.20
+
+  (gecen gurultu = filtre(gurultulu resim) - filtre(temiz resim); kuram = giris gurultu RMS x sqrt(maskenin karelerinin ortalamasi), beyaz gurultu varsayimi;
+   cikis SNR = filtrelenmis temiz resmin std'si / gecen gurultu RMS, dB)
+
+Kaydedilenler (cikti_filtreler):
+  10_temiz_filtreler.png, 10_gauss_gurultulu_filtreler.png, 10_tuz_biber_filtreler.png : ust satir ideal, alt satir Gauss filtreler; soldan saga girdi, LP, HP, BP, BR
+  10_filtre_maskeleri.png                                                      : filtrelerin frekans maskeleri
+  10_orijinal_spektrum.png                                                     : orijinal resmin log spektrumu

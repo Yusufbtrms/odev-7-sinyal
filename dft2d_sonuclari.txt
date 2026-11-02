@@ -1,0 +1,48 @@
+2 BOYUTLU DFT (harmonik matrisi; hucre (fu, fv) = o frekanstaki sinusun genligi, fu: yatay, fv: dikey frekans)
+
+---- A) dikey cizgiler (256x256) ----
+  Sure (2 boyutlu DFT): 52.4 ms
+  Ters DFT ile geri donusum: en buyuk fark = 4.8317e-13
+  Parseval: sum|f|^2 = 1401268224.0, sum|X|^2/(H*W) = 1401268224.0 (esit olmali)
+  DC genligi = 128.0000 (resmin ortalama parlakligi: 128.0000)
+  Enerjinin (DC haric) |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani = 100.00 %
+  En guclu 4 harmonik (DC haric, eslenik ciftlerden biri; genlik = sinus genligi): (fu=10, fv=0, 99.976) (fu=34, fv=0, 0.227) (fu=82, fv=0, 0.144) (fu=50, fv=0, 0.142)
+  Beklenen: (fu=10, fv=0, 100.0000)
+
+---- B) capraz cizgiler (256x256) ----
+  Sure (2 boyutlu DFT): 46.9 ms
+  Ters DFT ile geri donusum: en buyuk fark = 6.6791e-13
+  Parseval: sum|f|^2 = 1401241600.0, sum|X|^2/(H*W) = 1401241600.0 (esit olmali)
+  DC genligi = 128.0000 (resmin ortalama parlakligi: 128.0000)
+  Enerjinin (DC haric) |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani = 100.00 %
+  En guclu 4 harmonik (DC haric, eslenik ciftlerden biri; genlik = sinus genligi): (fu=8, fv=16, 99.972) (fu=-88, fv=80, 0.225) (fu=24, fv=48, 0.212) (fu=-72, fv=112, 0.178)
+  Beklenen: (fu=8, fv=16, 100.0000)
+
+---- C) iki frekansin toplami (256x256) ----
+  Sure (2 boyutlu DFT): 46.4 ms
+  Ters DFT ile geri donusum: en buyuk fark = 9.3792e-13
+  Parseval: sum|f|^2 = 1221138048.0, sum|X|^2/(H*W) = 1221138048.0 (esit olmali)
+  DC genligi = 128.0000 (resmin ortalama parlakligi: 128.0000)
+  Enerjinin (DC haric) |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani = 79.98 %
+  En guclu 4 harmonik (DC haric, eslenik ciftlerden biri; genlik = sinus genligi): (fu=10, fv=0, 59.981) (fu=0, fv=24, 30.005) (fu=120, fv=56, 0.056) (fu=-120, fv=56, 0.056)
+  Beklenen: (fu=10, fv=0, 60.0000) (fu=0, fv=24, 30.0000)
+
+---- D) beyaz dikdortgen 64x32 (256x256) ----
+  Sure (2 boyutlu DFT): 46.9 ms
+  Ters DFT ile geri donusum: en buyuk fark = 8.7397e-13
+  Parseval: sum|f|^2 = 133171200.0, sum|X|^2/(H*W) = 133171200.0 (esit olmali)
+  DC genligi = 7.9688 (resmin ortalama parlakligi: 7.9688)
+  Enerjinin (DC haric) |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani = 92.45 %
+  En guclu 4 harmonik (DC haric, eslenik ciftlerden biri; genlik = sinus genligi): (fu=0, fv=1, 15.531) (fu=0, fv=2, 14.350) (fu=1, fv=0, 14.349) (fu=-1, fv=1, 13.984)
+
+---- E) gercek resim (images/Cat.jpg, 256x256'ya kucultuldu) (256x256) ----
+  Sure (2 boyutlu DFT): 46.7 ms
+  Ters DFT ile geri donusum: en buyuk fark = 4.6896e-12
+  Parseval: sum|f|^2 = 1754716079.0, sum|X|^2/(H*W) = 1754716079.0 (esit olmali)
+  DC genligi = 153.7456 (resmin ortalama parlakligi: 153.7456)
+  Enerjinin (DC haric) |fu|,|fv| <= 16 dusuk frekans bolgesindeki orani = 95.13 %
+  En guclu 4 harmonik (DC haric, eslenik ciftlerden biri; genlik = sinus genligi): (fu=1, fv=0, 49.623) (fu=0, fv=1, 23.436) (fu=1, fv=1, 16.615) (fu=-1, fv=2, 14.973)
+
+Kaydedilenler (cikti_dft2d):
+  7_a_dikey_cizgiler.png, 7_b_capraz_cizgiler.png, 7_c_iki_frekans.png, 7_d_dikdortgen.png, 7_e_gercek_resim.png
+  (her biri: solda resim, sagda log spektrum; spektrumda sifir frekans ortada)
